@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased bg-white;
+  }
+  @layer base {
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}
+
+@layer components {
+  .dropdown {
+    @apply absolute shadow right-5 mt-2 bg-white top-12 z-50 py-4 rounded-xl;
+  }
+
+  .dropdown.left {
+    @apply top-7 left-0;
+  }
+}
+
+.toolbarMenu {
+  position: absolute;
+  z-index: 30;
+  top: 0;
+  left: 0;
+  margin-top: -6px;
+  opacity: 0;
+  background-color: white;
+  padding: 2px 4px;
+  -webkit-box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+  transition: opacity 0.75s;
+}
+
+.pageList,
+.pageList li {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0px;
+}
+
+.pageList li {
+  counter-increment: pagination;
+  margin-right: 12px;
+  margin-top: 12px;
+}
+
+.pageList .liDisabled {
+  background-color: #fdfdfd;
+  border: solid 1px #d7d7d7;
+  border-radius: 0.2rem;
+  cursor: default;
+}
+
+.pageList .liActive {
+  background-color: #136cbf;
+  border: 0;
+  border-radius: 0.2rem;
+}
+
+.pageList .liActive a {
+  color: #fff;
+  cursor: default;
+}
+
+.pageList .liDisabled a {
+  color: #ccc;
+  cursor: default;
+}
+
+.pageList .liNormal {
+  background-color: #fff;
+  border: solid 1px #d7d7d7;
+  border-radius: 0.2rem;
+}
+
+.pageList .liNormal:hover {
+  border: solid 1px #136cbf;
+}
+
+.pageList li:hover a {
+  text-decoration: underline;
+}
+
+.pageList .liDisabled:hover a,
+.pageList .liActive:hover a {
+  text-decoration: none;
+}
+
+.pageList li.active a {
+  color: #fdfdfd;
+  background-color: #1d1f20;
+  border: solid 1px #1d1f20;
+}
+
+.pageList li:first-child {
+  float: left;
+}
+
+.pageList li:first-child a:after {
+  content: "<";
+}
+
+.pageList li:nth-child(2) {
+  counter-reset: pagination;
+}
+
+.pageList li:last-child a:after {
+  content: ">";
+}
+
+.pageList li a {
+  color: #136cbf;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+  padding: 12px 20px;
+}
+
+.pageList li .aDisabled {
+  color: #136cbf;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+  padding: 12px 20px;
+}
+
+#epub-reader:fullscreen {
+  background-color: white;
+}
+
+.gridItemSpan {
+  grid-column: 1 / span 2;
+}
